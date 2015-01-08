@@ -238,7 +238,7 @@ header h1.logo{
 }
 .members_story{
 	left:30%;
-	margin-left: -25%;
+	margin-left: -35%;
 	padding-bottom: 300px;
 	position: relative;
 	margin-top: -10px;
@@ -480,4 +480,15 @@ hr{
 }
 .name,.tag{
 	display: none;
+}
+footer{
+  position: fixed;
+  width: 100%;
+  bottom:0;
+  height:5%;
+  background-color: rgba(17, 44, 27, 0.81);
+  color:white;
+}
+footer p{
+  padding-top: 20px;
 }
