@@ -41,12 +41,19 @@ var colorCodes = {
      '"MPI_Irecv"': "#1768af",
      '"MPI_Isend"': "#34dc44",
      '"MPI_Comm_rank"': "#af6c12",
-     '"MPI_Comm_size"': "0xfafaff",
+     '"MPI_Comm_size"': "#660d94",
+     '"MPI_Waitall"': "#841f14"
 };
+
+var blocks;
 var datatypes = {
      '"MPI_DOUBLE"': 8,
      "": 1
 };
+var debug =false;
+var pause = false;
+var parse_count = 0;
+
 function getFile(file){
      var deferred = new $.Deferred();
      var res;
@@ -67,32 +74,40 @@ function getFile(file){
 function parseData(){
      var coords = [];
      var data = getFile("data.csv").done(function(res){
-	 var blocks = res.split("\n");
-	 var maxTime = 0; 
-	 console.log(blocks[1]);
-	 var count = 0;
+	 var count=0;
+	 blocks  = res.split("\n");
 	 setInterval(function(){
-	     var block = blocks[count++].split(",");
-	     var time = block[block.length-1] - block[3];
-	     var memory = datatypes[block[6]] * parseInt(block[5]);
-	     var color = colorCodes[block[1]];
-	     if(!isNaN(time) && !isNaN(memory)){
-		 animate([time, memory, color]);	     
-	     }
+	     if(!pause)
+		 readLine(blocks, count++);
 	 },100);
+
      });
-     
 }
 
 parseData();
 
+ function readLine(blocks, count){
+     console.log(blocks[count]);
+     console.log(count);
+     var block = blocks[count].split(",");
+     var time = block[block.length-1] - block[3];
+     var memory = datatypes[block[6]] * parseInt(block[5]);
+     var color = colorCodes[block[1]];
+     var call = block[1];
+     if(!isNaN(time) && !isNaN(memory) && (!pause || debug) ){
+	 console.log("getting in");
+	 animate([time, memory, color]);	     
+     }   
+ }
+ 
  var svg = d3.select("svg"),
      margin = {top: 50, right: 30, bottom: 30, left: 50},
      width = +svg.attr("width") - margin.left - margin.right,
      height = +svg.attr("height") - margin.top - margin.bottom,
      g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
  var x = d3.scaleLinear()
-	   .range([0, width]);
+	   .range([0, 128000]);
  var y = d3.scaleLinear()
 	   .domain([1, 10])
 	   .range([0, height]);
@@ -106,61 +121,65 @@ parseData();
 	       .attr("class", "axis")
 	       .style("font-size", "20px")
 	       .call(yAxis);
+
  var count = 0;
  var node_count = 0;
  var seconds = 86400000;
  var days = 0;
- 
-// x.domain([now, prev]);
  xAxisG.call(xAxis);
- d3.interval(function() {	
- },100);
 
-
-
-function animate(coords){
+ function animate(coords){
+     console.log("animate");
      var max_time =  0.00005214900000000133;
      var circle = g.append("circle")
-		   .attr("r", 5)
+		   .attr("r", 9)
 		   .attr("stroke-opacity", 1)
-		   .attr("cy", (coords[0]/max_time)*10000)
-		   .attr("cx", coords[1])
+		   .attr("cy", (coords[0]/max_time)*5000)
+		   .attr("cx", coords[1]/10)
 		   .style("fill", coords[2]);
      circle.transition()
-	   .duration(100000)
+	   .duration(coords[0]*10000000000)
 	   .ease(d3.easeCubicOut)
-	   .attr("cy", 650)
-	   .style("opacity", 0)
+	   .attr("cy", 1470)
+	   .style("opacity", 0) 
 	   .transition()
 	   .remove();
+     console.log((coords[0]/max_time)*5000);
+     console.log(coords[1]*10);
 }
  
- /*    function createCircle(current, crimes_parameters){
-     var circle = g.append("circle")
-		   .attr("r", 70)
-		   .attr("stroke-opacity", 1)
-		   .style("fill", crimes_parameters["circle_color"])
-		   .style("opacity", 1 - parseInt(crimes_parameters["crimes_level_score"])/10)
-		   .style("stroke", "black")
-		   .attr("cy", parseInt(crimes_parameters["crimes_level_score"])*height/10);
-     circle.transition("time")
-           .duration(5000)
-           .ease(d3.easeLinear)
-           .attrTween("cx", function(d){ return function(t) { return x(current); }});;
-     
-     circle.transition()
-           .duration(750)
-           .ease(d3.easeCubicOut)
-           .attr("r", crimes_parameters["crimes_count"]/10)
-           .attr("stroke-opacity", 1)
-	   .transition()
-           .delay(5000)
-           .ease(d3.easeCubicIn)
-           .attr("stroke-opacity", 0)
-           .remove();
+ var count = 0;
+ for(var key in colorCodes){
+     if(colorCodes.hasOwnProperty(key)){
+	 count++;
+	 var blobs = g.append("circle")
+		      .attr("r", 12)
+		      .attr("stroke-opacity", 1)
+		      .attr("cy", count*30)
+		      .attr("cx", 1000)
+		      .style("fill",colorCodes[key]);
+	g.append("text")
+		      .attr("dy", count*30 + 10)
+		      .attr("dx", 1020)
+	              .style("font-size", "30px")
+		      .text(function() { return key; });
+     }
  }
- */
-
  
+ document.onkeydown = function(e){
+     switch(e.keyCode){
+	     case 32:{
+		 console.log("paused");
+		 pause = !pause;
+		 debug = false;
+		 break;
+	     }
+	     case 70:{
+		 debug = true;
+		 readLine(blocks, count++);
+		 break;
+	     }
+     }
+ }
 </script>
 </html>
