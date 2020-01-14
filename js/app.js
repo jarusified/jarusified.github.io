@@ -2,8 +2,9 @@ $(document).ready(function() {
     // $('body').hide().fadeIn();
 
     $('.abstract-button').click(function() {
-      var id = $(this).attr('id')
-      var abs = '#'+id.replace('p', 'abs');
+      let id = $(this).attr('id')
+      let abs = '#'+id.replace('p', 'abs');
+      console.log(abs)
       $(abs).toggle();
     })
 });
