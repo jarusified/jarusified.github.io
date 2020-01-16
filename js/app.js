@@ -4,7 +4,6 @@ $(document).ready(function() {
     $('.abstract-button').click(function() {
       let id = $(this).attr('id')
       let abs = '#'+id.replace('p', 'abs');
-      console.log(abs)
       $(abs).toggle();
     })
 });
