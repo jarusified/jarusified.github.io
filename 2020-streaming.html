@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>A Visual Analytics Framework for Reviewing Streaming Performance Data.</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./css/project.css" />
+</head>
+
+<body>
+	<h1>A Visual Analytics Framework for Reviewing Streaming Performance Data.</h1>
+	<h2>Supplementary material</h2>
+	<div class="col-md-9 col-centered">
+
+		<h3>Abstract</h3>
+		<div>
+			Understanding and tuning the performance of extreme-scale parallel computing systems demands a
+			streaming approach due to the computational cost of applying offline algorithms to vast amounts 
+			of performance log data. Analyzing large streaming data is challenging because the rate of 
+			receiving data and limited time to comprehend data make it difficult for the analysts to 
+			sufficiently examine the data without missing important changes or patterns. To support streaming 
+			data analysis, we introduce a visual analytic framework comprising of three modules: data 
+			management, analysis, and interactive visualization. The data management module collects various 
+			computing and communication performance metrics from the monitored system using streaming data 
+			processing techniques and feeds the data to the other two modules. The analysis module automatically 
+			identifies important changes and patterns at the required latency. In particular, we introduce a set 
+			of online and progressive analysis methods for not only controlling the computational costs but also 
+			helping analysts better follow the critical aspects of the analysis results. Finally, the interactive
+			visualization module provides the analysts with a coherent view of the changes and patterns in the 
+			continuously captured performance data. Through a multi-faceted case study on performance analysis of 
+			parallel discrete-event simulation, we demonstrate the effectiveness of our framework for identifying 
+			bottlenecks and locating outliers.	
+		</div>
+		<hr/>
+
+		<h3>Streaming algorithms</h3>
+		<div>
+			<p> Code <a href="https://github.com/VIDILabs/mv-streaming-algorithms">[link]</a></p>
+		</div>
+		<hr/>
+		<h3>System Demo (Sect. 5)</h3>
+		<div>
+			<p>Code <a href="https://github.com/VIDILabs/Streaming-ROSS-Project">[link]</a></p>
+			<p>Video of Interaction Demo <a href="https://www.youtube.com/watch?v=pxthZSJ1jqs&feature=youtu.be/">[link]</a></p>
+		</div>
+		<hr />
+
+		<div>
+			<p class=indent><b>Citation</b></p>
+			<div class=cite> Suraj P. Kesavan, Takanori Fujiwara, Jianping Kelvin Li, 
+				Caitlin Ross, Misbah Mubarak, Christopher D. Carothers, Robert B. Ross, and Kwan-Liu Ma. 
+				"A Visual Analytics Framework for Reviewing Streaming Performance Data." 
+				In Proceedings of IEEE Pacific Visualization Symposium (PacificVis), forthcoming</div>
+			<p class=indent2> 
+			</p>
+		</div>
+		<hr/>
+
+	</div>
+
+</body>
+
+</html>

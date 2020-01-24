@@ -1,0 +1,122 @@
+/* Initializing */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700);
+
+h1 {
+  width: 70%;
+  margin: auto;
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #182B52;
+  /* margin: 10px 0 10px !important; */
+  text-align: center;
+  font-family: "Raleway", "Ubuntu", sans-serif;
+}
+
+h2 {
+  color: #7B1541;
+  font-family: "Raleway", "Ubuntu", sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+h3 {
+  margin: -7px 0 5px;
+  font-weight: 600;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  color: #182B52;
+}
+
+p {
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+p.narrow {
+  margin: auto;
+  position: relative;
+  width: 80%;
+  margin-bottom: 5px;
+}
+
+p.indent {
+  margin-left: 25px;
+  margin-bottom: 5px;
+}
+
+p.indent2 {
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+.cite {
+  margin-left: 35px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  float: left;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.doubleCol {
+  float: left;
+  position: relative;
+  height: 94%;
+  width: 49%;
+}
+
+.singleCol {
+  margin: auto;
+  position: relative;
+  height: 82%;
+  width: 49%;
+}
+
+.videoDoubleCol {
+  position: relative;
+  height: 93%;
+  width: 95%;
+  background-color: #f8f8f8;
+  border-style: solid;
+  border-color: #888888;
+  border-width: 2px;
+}
+
+.videoSingleCol {
+  position: relative;
+  height: 99%;
+  width: 97%;
+  background-color: #f8f8f8;
+  border-style: solid;
+  border-color: #888888;
+  border-width: 2px;
+}
+
+.center {
+  width: 95%;
+  text-align: center;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+#section1, #section2, #section3 {
+  height: 500px;
+  margin-bottom: 50px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
