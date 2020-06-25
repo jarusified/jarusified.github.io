@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Scalable Comparative Visualization of Ensembles of Call Graphs.</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./css/project.css" />
+</head>
+
+<body>
+	<h1>Scalable Comparative Visualization of Ensembles of Call Graphs</h1>
+	<h2>Supplementary material</h2>
+	<div class="col-md-9 col-centered">
+
+		<h3>Abstract</h3>
+		<div>
+			Optimizing the performance of large-scale parallel codes is critical for
+			efficient utilization of computing resources. Code developers often explore
+			various execution parameters, such as hardware configurations, system software
+			choices, and application parameters, and are interested in detecting and
+			understanding bottlenecks in different executions. They often collect
+			hierarchical performance profiles represented as call graphs, which combine
+			performance metrics with their execution contexts. The crucial task of exploring 
+			multiple call graphs together is tedious and challenging because of the many
+			structural differences in the execution contexts and significant variability
+			in the collected performance metrics (e.g., execution runtime). In this paper,
+			we present an enhanced version of CallFlow to support the exploration of 
+			ensembles of call graphs using new types of visualizations, analysis, graph 
+			operations, and features.  We introduce ensemble-Sankey, a new visual
+			design that combines the strengths of resource-flow (Sankey) and box-plot 
+			visualization techniques.  Whereas the resource-flow visualization can easily
+			and intuitively describe the graphical nature of the call graph, the box 
+			plots overlaid on the nodes of Sankey convey the performance variability 
+			within the ensemble. Our interactive visual interface provides linked views
+			to help explore ensembles of call graphs, e.g., by facilitating the analysis 
+			of structural differences, and identifying similar or distinct call graphs.
+			We demonstrate the effectiveness and usefulness of our design through case
+			studies on large-scale parallel codes.
+			
+		</div>
+		<hr/>
+
+		<h3>Datasets</h3>
+		<div>
+			<p> Code <a href="https://github.com/VIDILabs/mv-streaming-algorithms">[link]</a></p>
+		</div>
+		<hr/>
+		<h3>System Demo (Sect. 5)</h3>
+		<div>
+			<p>Code <a href="https://github.com/jarusified/CallFlow">[link]</a></p>
+		</div>
+		<hr />
+
+		<!-- <div>
+			<p class=indent><b>Citation</b></p>
+			<div class=cite> Suraj P. Kesavan, Harsh Bhatia,
+				Abhinav Bhatele, Todd Gamblin, Peer-Timo Bremer, and Kwan-Liu Ma.
+				"A Visual Analytics Framework for Reviewing Streaming Performance Data." 
+				</div>
+			<p class=indent2> 
+			</p>
+		</div> -->
+		<hr/>
+
+	</div>
+
+</body>
+
+</html>
